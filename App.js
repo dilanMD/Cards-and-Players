@@ -1,22 +1,23 @@
 import React from 'react';
-import {
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-} from 'react-native';
+import { StyleSheet } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { useSelector } from "react-redux";
 
-const App = ()  => {
+import Authentication from "./src/helpers/navigations/stack-navigation/Authentication";
+import Home from "./src/screens/home";
+
+const App = () => {
+  const auth = useSelector(state => state.auth);
+
   return (
-    <>
-      
-    </>
+    <NavigationContainer>
+      {auth.isLoggedIn ? <Home /> : <Authentication />}
+    </NavigationContainer>
   );
 };
 
 const styles = StyleSheet.create({
-  
+
 });
 
 export default App;
