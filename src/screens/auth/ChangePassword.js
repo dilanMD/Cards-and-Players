@@ -20,26 +20,13 @@ const ChangePassword = (props) => {
             <View style={styles.topHalf}>
                 <Image source={Logo} style={styles.logo} />
                 <View style={styles.titleContainer}>
-                    <Text style={styles.title}>Register</Text>
+                    <Text style={styles.title}>Change Password</Text>
                     <Space space={10} />
-                    <Text style={styles.subtitle}>{AppData.subtitle}</Text>
+                    <Text style={styles.subtitle}>{AppData.changePassword}</Text>
                 </View>
             </View>
             <View style={styles.bottomHalf}>
                 <Cards style={styles.card}>
-                    <Inputs
-                        placeholder="Username"
-                        icon="user"
-                        size={Fonts.subTitleSize}
-                        color={Colors.dark}
-                    />
-                    <Inputs
-                        placeholder="Email"
-                        icon="mail"
-                        size={Fonts.subTitleSize}
-                        color={Colors.dark}
-                        keyboardType="email-address"
-                    />
                     <Inputs
                         placeholder="Password"
                         icon="lock"
@@ -47,16 +34,14 @@ const ChangePassword = (props) => {
                         color={Colors.dark}
                         secured
                     />
-                    <Buttons title="Register" onPress={() => navigate("Login")} />
-                    <Space space={15} />
-                    <Text>{AppData.byRegister}</Text>
-                    <Text style={styles.forget}>Terms and conditions</Text>
-                </Cards>
-                <Space space={20} />
-                <Text>──────── Or connect using ────────</Text>
-                <Space space={20} />
-                <Cards>
-                    <SocialNetworks />
+                    <Inputs
+                        placeholder="Confirm Password"
+                        icon="lock"
+                        size={Fonts.subTitleSize}
+                        color={Colors.dark}
+                        secured
+                    />
+                    <Buttons title="Update Password" onPress={() => navigate("Success")} />
                 </Cards>
             </View>
         </View>
@@ -84,7 +69,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
     },
     card: {
-        marginTop: -150
+        marginTop: -100
     },
     titleContainer: {
         textAlign: "left",
@@ -98,7 +83,8 @@ const styles = StyleSheet.create({
         color: Colors.bright,
     },
     subtitle: {
-        color: Colors.bright
+        color: Colors.bright,
+        marginRight: 20
     },
     forget: {
         color: Colors.primary,
