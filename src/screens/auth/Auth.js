@@ -22,11 +22,12 @@ const Auth = (props) => {
             <View style={styles.bottomHalf}>
                 <Cards style={styles.card}>
                     <Text style={styles.title}>Welcome to {AppData.title}</Text>
+                    <Space space={10} />
                     <Text style={styles.subtitle}>{AppData.subtitle}</Text>
                     <Space space={20} />
                     <Buttons title="Login" onPress={() => navigate("Login")} />
                     <Buttons title="Register" type="outline" onPress={() => navigate("Register")} />
-                    <Space space={20} />
+                    <Space space={10} />
                     <Text>──────── Or connect using ────────</Text>
                     <Space space={20} />
                     <SocialNetworks />
