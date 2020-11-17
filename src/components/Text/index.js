@@ -6,15 +6,9 @@ const index = (props) => {
 
     return (
         <View>
-            <Text style={[style, styles.text]}>{children}</Text>
+            <Text style={style}>{children}</Text>
         </View>
     );
 }
-
-const styles = StyleSheet.create({
-    text: {
-        marginBottom: 10
-    }
-});
 
 export default index;
