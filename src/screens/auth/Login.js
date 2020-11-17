@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Image, StyleSheet, Alert } from "react-native";
+import { View, Image, StyleSheet, TouchableOpacity } from "react-native";
 
 import { AppData } from "../../helpers/constants/AppData";
 import { Colors } from "../../helpers/constants/Colors";
@@ -43,7 +43,9 @@ const Login = (props) => {
                     />
                     <Buttons title="Login" onPress={() => navigate("Login")} />
                     <Space space={15} />
-                    <Text style={styles.forget}>Forget Password?</Text>
+                    <TouchableOpacity onPress={() => navigate("FindAccount")}>
+                        <Text style={styles.forget}>Forget Password?</Text>
+                    </TouchableOpacity>
                 </Cards>
                 <Space space={20} />
                 <Text>──────── Or connect using ────────</Text>
