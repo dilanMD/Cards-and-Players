@@ -4,12 +4,14 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 
 import { Colors } from "../../helpers/constants/Colors";
 
-const SocialNetworks = () => {
+const SocialNetworks = (props) => {
+    const navigate = (screen) => props.navigate(screen);
+
     return (
         <View style={styles.container}>
             <Icon.Button name="facebook" backgroundColor={Colors.facebook} />
             <Icon.Button name="google" backgroundColor={Colors.google} />
-            <Icon.Button name="mobile" backgroundColor={Colors.mobile} />
+            <Icon.Button name="mobile" backgroundColor={Colors.mobile} onPress={() => navigate("Phone")} />
         </View>
     );
 }
