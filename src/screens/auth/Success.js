@@ -1,14 +1,12 @@
 import React from 'react';
-import { View, Image, StyleSheet, Alert } from "react-native";
+import { View, Image, StyleSheet } from "react-native";
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
-import { AppData } from "../../helpers/constants/AppData";
 import { Colors } from "../../helpers/constants/Colors";
 import { Fonts } from "../../helpers/constants/Fonts";
 import Logo from "../../assets/icon.png";
-import SocialNetworks from "./SocialNetworks";
 import Cards from "../../components/Cards";
 import Text from "../../components/Text";
-import Inputs from "../../components/Inputs";
 import Buttons from "../../components/Buttons";
 import Space from "../../components/Misc/Space";
 
@@ -19,44 +17,20 @@ const Success = (props) => {
         <View style={styles.container}>
             <View style={styles.topHalf}>
                 <Image source={Logo} style={styles.logo} />
-                <View style={styles.titleContainer}>
-                    <Text style={styles.title}>Register</Text>
-                    <Space space={10} />
-                    <Text style={styles.subtitle}>{AppData.subtitle}</Text>
-                </View>
             </View>
             <View style={styles.bottomHalf}>
                 <Cards style={styles.card}>
-                    <Inputs
-                        placeholder="Username"
-                        icon="user"
-                        size={Fonts.subTitleSize}
-                        color={Colors.dark}
-                    />
-                    <Inputs
-                        placeholder="Email"
-                        icon="mail"
-                        size={Fonts.subTitleSize}
-                        color={Colors.dark}
-                        keyboardType="email-address"
-                    />
-                    <Inputs
-                        placeholder="Password"
-                        icon="lock"
-                        size={Fonts.subTitleSize}
-                        color={Colors.dark}
-                        secured
-                    />
-                    <Buttons title="Register" onPress={() => navigate("Login")} />
+                    <Text style={styles.title}>Password Changed</Text>
                     <Space space={15} />
-                    <Text>{AppData.byRegister}</Text>
-                    <Text style={styles.forget}>Terms and conditions</Text>
-                </Cards>
-                <Space space={20} />
-                <Text>──────── Or connect using ────────</Text>
-                <Space space={20} />
-                <Cards>
-                    <SocialNetworks />
+                    <Text style={styles.subtitle}>Congratulations!! You've successfully changed your password</Text>
+                    <Space space={30} />
+                    <Icon
+                        size={150}
+                        name="check-decagram"
+                        color={Colors.primaryLight}
+                    />
+                    <Space space={30} />
+                    <Buttons title="Back to Login" onPress={() => navigate("Login")} />
                 </Cards>
             </View>
         </View>
@@ -93,12 +67,14 @@ const styles = StyleSheet.create({
         marginTop: 50
     },
     title: {
-        fontSize: Fonts.titleSize,
+        fontSize: Fonts.extraLarge,
         fontWeight: Fonts.boldest,
-        color: Colors.bright,
+        color: Colors.primaryLight
     },
     subtitle: {
-        color: Colors.bright
+        color: Colors.dark,
+        textAlign: "center",
+        marginHorizontal: 20
     },
     forget: {
         color: Colors.primary,

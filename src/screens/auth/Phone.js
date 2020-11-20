@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, Image, StyleSheet, Alert } from "react-native";
+import { View, Image, StyleSheet, TouchableOpacity } from "react-native";
+import OtpInputs from 'react-native-otp-inputs';
 
 import { AppData } from "../../helpers/constants/AppData";
 import { Colors } from "../../helpers/constants/Colors";
@@ -20,7 +21,7 @@ const Phone = (props) => {
             <View style={styles.topHalf}>
                 <Image source={Logo} style={styles.logo} />
                 <View style={styles.titleContainer}>
-                    <Text style={styles.title}>Register</Text>
+                    <Text style={styles.title}>Login with phone number</Text>
                     <Space space={10} />
                     <Text style={styles.subtitle}>{AppData.subtitle}</Text>
                 </View>
@@ -28,29 +29,22 @@ const Phone = (props) => {
             <View style={styles.bottomHalf}>
                 <Cards style={styles.card}>
                     <Inputs
-                        placeholder="Username"
-                        icon="user"
+                        placeholder="Mobile Number"
+                        icon="phone"
+                        keyboardType="phone-pad"
                         size={Fonts.subTitleSize}
                         color={Colors.dark}
                     />
-                    <Inputs
-                        placeholder="Email"
-                        icon="mail"
-                        size={Fonts.subTitleSize}
-                        color={Colors.dark}
-                        keyboardType="email-address"
-                    />
-                    <Inputs
-                        placeholder="Password"
-                        icon="lock"
-                        size={Fonts.subTitleSize}
-                        color={Colors.dark}
-                        secured
+                    <OtpInputs
+                        handleChange={(code) => console.log(code)}
+                        numberOfInputs={4}
                     />
                     <Buttons title="Register" onPress={() => navigate("Login")} />
                     <Space space={15} />
-                    <Text>{AppData.byRegister}</Text>
-                    <Text style={styles.forget}>Terms and conditions</Text>
+                    <Text style={styles.dark}>{AppData.codeNotReceived}</Text>
+                    <TouchableOpacity>
+                        <Text style={styles.forget}>Resend</Text>
+                    </TouchableOpacity>
                 </Cards>
                 <Space space={20} />
                 <Text>──────── Or connect using ────────</Text>

@@ -30,7 +30,7 @@ const Auth = (props) => {
                     <Space space={10} />
                     <Text>──────── Or connect using ────────</Text>
                     <Space space={20} />
-                    <SocialNetworks />
+                    <SocialNetworks navigate={navigate} />
                 </Cards>
             </View>
         </View>
