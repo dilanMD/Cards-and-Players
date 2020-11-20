@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Image, StyleSheet, TouchableOpacity } from "react-native";
+import OtpInputs from 'react-native-otp-inputs';
 
 import { AppData } from "../../helpers/constants/AppData";
 import { Colors } from "../../helpers/constants/Colors";
@@ -33,6 +34,10 @@ const Phone = (props) => {
                         keyboardType="phone-pad"
                         size={Fonts.subTitleSize}
                         color={Colors.dark}
+                    />
+                    <OtpInputs
+                        handleChange={(code) => console.log(code)}
+                        numberOfInputs={4}
                     />
                     <Buttons title="Register" onPress={() => navigate("Login")} />
                     <Space space={15} />
