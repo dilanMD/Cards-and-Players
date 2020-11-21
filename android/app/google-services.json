@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "787923930984",
+    "firebase_url": "https://cardsandplayers-495b2.firebaseio.com",
+    "project_id": "cardsandplayers-495b2",
+    "storage_bucket": "cardsandplayers-495b2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:787923930984:android:7efdf3a4c5c2cc2c90d0dd",
+        "android_client_info": {
+          "package_name": "com.cardsandplayers"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "787923930984-hgv7ksfrds9vlupoct1pm1jkha23pdoa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6gH47ae-tGLAJNuR-E99jXjN1VWNgLv4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "787923930984-hgv7ksfrds9vlupoct1pm1jkha23pdoa.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
