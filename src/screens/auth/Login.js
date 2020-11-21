@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Image, StyleSheet, TouchableOpacity } from "react-native";
+import AwesomeAlert from 'react-native-awesome-alerts';
+import { useSelector, useDispatch } from "react-redux";
 
 import { AppData } from "../../helpers/constants/AppData";
 import { Colors } from "../../helpers/constants/Colors";
 import { Fonts } from "../../helpers/constants/Fonts";
+import { login } from '../../redux/actions/authActions';
 import Logo from "../../assets/icon.png";
 import SocialNetworks from "./SocialNetworks";
 import Cards from "../../components/Cards";
@@ -11,9 +14,48 @@ import Text from "../../components/Text";
 import Inputs from "../../components/Inputs";
 import Buttons from "../../components/Buttons";
 import Space from "../../components/Misc/Space";
+import Spinners from "../../components/Misc/Spinners";
 
 const Login = (props) => {
     const navigate = (screen) => props.navigation.navigate(screen);
+
+    // STATES
+    const [showError, setShowError] = useState(false);
+    const [emailError, setEmailError] = useState("");
+    const [pwdError, setPwdError] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
+    // REDUX HOOKS
+    const auth = useSelector(state => state.auth);
+    const dispatch = useDispatch();
+
+    // HANDLE INPUTS
+    const handleEmail = (text) => {
+        setEmail(text);
+        setEmailError("");
+    }
+    const handlePassword = (text) => {
+        setPassword(text);
+        setPwdError("");
+    }
+
+    // USE EFFECT => LIFE CYCLES
+    useEffect(() => {
+        auth.error && setShowError(true);
+    }, [auth.error]);
+
+    const handleLogin = (mailId, pwd) => {
+        if (email === "") {
+            setEmailError("Please enter email address");
+        } else if (password === "") {
+            setPwdError("Please enter password");
+        } else if (email !== "" && password !== "") {
+            dispatch(login(mailId, pwd));
+        }
+    }
+
+    const hideAlert = () => setShowError(false);
 
     return (
         <View style={styles.container}>
@@ -31,17 +73,49 @@ const Login = (props) => {
                         placeholder="Email"
                         icon="mail"
                         size={Fonts.subTitleSize}
-                        color={Colors.dark}
+                        style={{ borderBottomColor: emailError === "" ? Colors.primaryLight : Colors.danger }}
+                        color={emailError === "" ? Colors.primaryLight : Colors.danger}
                         keyboardType="email-address"
+                        value={email}
+                        handleChange={(text) => handleEmail(text)}
                     />
+                    {emailError !== "" && <Text style={styles.error}>{emailError}</Text>}
                     <Inputs
                         placeholder="Password"
                         icon="lock"
                         size={Fonts.subTitleSize}
-                        color={Colors.dark}
+                        style={{ borderBottomColor: pwdError === "" ? Colors.primaryLight : Colors.danger }}
+                        color={pwdError === "" ? Colors.primaryLight : Colors.danger}
                         secured
+                        value={password}
+                        handleChange={(text) => handlePassword(text)}
                     />
-                    <Buttons title="Login" onPress={() => navigate("Login")} />
+                    {pwdError !== "" && <Text style={styles.error}>{pwdError}</Text>}
+                    {auth.isLoading && (
+                        <Spinners
+                            color={Colors.primaryLight}
+                            title="Signing"
+                            message="Please wait until our login process finish!!"
+                        />
+                    )}
+                    {auth.error && (
+                        <AwesomeAlert
+                            show={showError}
+                            showProgress={false}
+                            title="Login Error"
+                            message={auth.error.message}
+                            closeOnTouchOutside={true}
+                            closeOnHardwareBackPress={false}
+                            showConfirmButton={true}
+                            confirmText="OK"
+                            confirmButtonColor={Colors.primaryLight}
+                            onConfirmPressed={hideAlert}
+                        />
+                    )}
+                    <Buttons
+                        title="Login"
+                        onPress={() => handleLogin(email, password)}
+                    />
                     <Space space={15} />
                     <TouchableOpacity onPress={() => navigate("FindAccount")}>
                         <Text style={styles.forget}>Forget Password?</Text>
@@ -98,6 +172,11 @@ const styles = StyleSheet.create({
     forget: {
         color: Colors.primary,
         fontWeight: Fonts.boldest
+    },
+    error: {
+        color: Colors.danger,
+        fontSize: Fonts.size,
+        fontWeight: Fonts.bolder,
     }
 });
 

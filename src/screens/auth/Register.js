@@ -8,7 +8,6 @@ import { Colors } from "../../helpers/constants/Colors";
 import { Fonts } from "../../helpers/constants/Fonts";
 import { register } from '../../redux/actions/authActions';
 import Logo from "../../assets/icon.png";
-import SocialNetworks from "./SocialNetworks";
 import Cards from "../../components/Cards";
 import Text from "../../components/Text";
 import Inputs from "../../components/Inputs";
@@ -16,9 +15,7 @@ import Buttons from "../../components/Buttons";
 import Space from "../../components/Misc/Space";
 import Spinners from "../../components/Misc/Spinners";
 
-const Register = (props) => {
-    const navigate = (screen) => props.navigation.navigate(screen);
-
+const Register = () => {
     // STATES
     const [showError, setShowError] = useState(false);
     const [emailError, setEmailError] = useState("");

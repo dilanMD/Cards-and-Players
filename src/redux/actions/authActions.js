@@ -13,11 +13,9 @@ export const register = (email, password) => (dispatch) => {
     dispatch(registerRequest());
     firebaseRegister(email, password)
         .then((res) => {
-            console.log(res);
             dispatch(registerSuccess(res));
         })
         .catch((e) => {
-            // console.error(e);
             dispatch(registerFailed(e));
         });
 }
@@ -26,6 +24,20 @@ export const register = (email, password) => (dispatch) => {
  * LOGIN
  ********/
 
+const loginRequest = () => ({ type: AUTH_TYPE.LOGIN_REQUEST });
+const loginSuccess = (user) => ({ type: AUTH_TYPE.LOGIN_SUCCESS, payload: user });
+const loginFailed = (error) => ({ type: AUTH_TYPE.LOGIN_FAILED, payload: error });
+
+export const login = (email, password) => (dispatch) => {
+    dispatch(loginRequest());
+    firebaseLogin(email, password)
+        .then((res) => {
+            dispatch(loginSuccess(res));
+        })
+        .catch((e) => {
+            dispatch(loginFailed(e));
+        });
+}
 
 /**********
 * SIGN OUT
