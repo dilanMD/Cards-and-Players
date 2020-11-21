@@ -11,5 +11,6 @@ export const Colors = {
     dark: '#000000',
     facebook: "#3b5998",
     google: "#DB4437",
-    mobile: "#a1a1a1"
+    mobile: "#a1a1a1",
+    danger: "#F44336"
 }
