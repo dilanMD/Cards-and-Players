@@ -5,7 +5,7 @@ import { Button } from 'react-native-elements';
 import { Colors } from "../../helpers/constants/Colors";
 
 const index = (props) => {
-    const { title, type, onPress } = props;
+    const { title, type, onPress, disabled } = props;
 
     const showToast = () => {
         ToastAndroid.show("A pikachu appeared nearby !", ToastAndroid.SHORT);
@@ -19,6 +19,7 @@ const index = (props) => {
             buttonStyle={styles.buttonStyle}
             containerStyle={styles.containerStyle}
             onPress={onPress}
+            disabled={disabled}
         />
     );
 }

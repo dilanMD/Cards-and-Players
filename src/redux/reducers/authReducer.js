@@ -1,9 +1,20 @@
+import { AUTH_TYPE } from '../types/authTypes';
+
 const INITIAL_STATE = {
-    isLoggedIn: false
+    isLoading: false,
+    isLoggedIn: false,
+    user: null,
+    error: null
 };
 
-const authReducer = (state = INITIAL_STATE, { type, action }) => {
+const authReducer = (state = INITIAL_STATE, { type, payload }) => {
     switch (type) {
+        case AUTH_TYPE.REGISTER_REQUEST:
+            return { ...state, isLoading: true }
+        case AUTH_TYPE.REGISTER_SUCCESS:
+            return { ...state, isLoading: false, isLoggedIn: true, user: payload }
+        case AUTH_TYPE.REGISTER_FAILED:
+            return { ...state, isLoading: false, error: payload }
         default:
             return state;
     };
