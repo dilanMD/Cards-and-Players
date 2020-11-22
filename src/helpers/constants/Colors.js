@@ -9,6 +9,7 @@ export const Colors = {
     textOnSecondary: '#000000',
     bright: '#ffffff',
     dark: '#000000',
+    grey: '#c3c3c3',
     facebook: "#3b5998",
     google: "#DB4437",
     mobile: "#a1a1a1",

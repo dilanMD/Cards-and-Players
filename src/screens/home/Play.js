@@ -1,14 +1,14 @@
 import React from "react";
 import { StyleSheet, View, Text } from "react-native";
 
-const index = () => {
+const Play = () => {
     return (
         <View>
-            <Text>Home.JS</Text>
+            <Text>Play</Text>
         </View>
     );
 }
 
 const styles = StyleSheet.create({});
 
-export default index;
+export default Play;
