@@ -4,6 +4,9 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 
 import Score from "../../../screens/home/Score";
 import Play from "../../../screens/home/Play";
+import Live from "../../../screens/home/Live";
+import Results from "../../../screens/home/Results";
+import Upcoming from "../../../screens/home/Upcoming";
 import { Colors } from "../../../helpers/constants/Colors";
 
 const Tab = createBottomTabNavigator();
@@ -21,22 +24,25 @@ const tabStyle = {
 const HomeNavigation = () => {
     return (
         <Tab.Navigator
-            initialRouteName="Play"
+            initialRouteName="Live"
             tabBarOptions={tabBarOptions, tabStyle}
             screenOptions={({ route }) => ({
                 tabBarIcon: ({ focused, color, size }) => {
                     let iconName;
-                    if (route.name === 'Score') {
+                    if (route.name === 'Live') {
+                        iconName = 'bullhorn'
+                    } else if (route.name === 'Results') {
                         iconName = 'bar-chart'
-                    } else if (route.name === 'Play') {
-                        iconName = 'gamepad'
+                    } else if (route.name === 'Upcoming') {
+                        iconName = 'calendar'
                     }
                     return <Icon name={iconName} color={color} size={size} />
                 },
             })}
         >
-            <Tab.Screen name="Score" component={Score} />
-            <Tab.Screen name="Play" component={Play} />
+            <Tab.Screen name="Live" component={Live} />
+            <Tab.Screen name="Results" component={Results} />
+            <Tab.Screen name="Upcoming" component={Upcoming} />
         </Tab.Navigator>
     );
 }
