@@ -2,7 +2,7 @@ import { AUTH_TYPE } from '../types/authTypes';
 
 const INITIAL_STATE = {
     isLoading: false,
-    isLoggedIn: false,
+    isLoggedIn: true,
     user: null,
     error: null
 };
