@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { StyleSheet, View } from "react-native";
 
-import Text from "../../components/Text";
+import Text from "../../../components/Text";
 
-const Live = () => {
+const index = () => {
     return (
         <View style={styles.container}>
-            <Text>Live Score</Text>
+            <Text>Results</Text>
         </View>
     );
 }
@@ -19,4 +19,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default Live;
+export default index;

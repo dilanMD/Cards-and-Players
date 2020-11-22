@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { StyleSheet, View } from "react-native";
 
-import Text from "../../components/Text";
+import Cards from "../../../components/Cards";
 
-const Upcoming = () => {
+const index = () => {
     return (
         <View style={styles.container}>
-            <Text>Upcoming Matches</Text>
+            <Cards></Cards>
         </View>
     );
 }
@@ -14,9 +14,7 @@ const Upcoming = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: "center",
-        alignItems: "center"
     }
 });
 
-export default Upcoming;
+export default index;

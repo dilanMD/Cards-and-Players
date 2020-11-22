@@ -2,11 +2,9 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-import Score from "../../../screens/home/Score";
-import Play from "../../../screens/home/Play";
-import Live from "../../../screens/home/Live";
-import Results from "../../../screens/home/Results";
-import Upcoming from "../../../screens/home/Upcoming";
+import Live from "../../../screens/home/Live/";
+import Results from "../../../screens/home/Results/";
+import Upcoming from "../../../screens/home/Upcoming/";
 import { Colors } from "../../../helpers/constants/Colors";
 
 const Tab = createBottomTabNavigator();

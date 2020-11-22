@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { StyleSheet, View } from "react-native";
 
-import Text from "../../components/Text";
+import Text from "../../../components/Text";
 
-const Results = () => {
+const index = () => {
     return (
         <View style={styles.container}>
-            <Text>Results</Text>
+            <Text>Upcoming Matches</Text>
         </View>
     );
 }
@@ -19,4 +19,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default Results;
+export default index;
